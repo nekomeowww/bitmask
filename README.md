@@ -1,6 +1,6 @@
 # bitmask
 
-[![](https://goreportcard.com/badge/github.com/nekomeowww/bitmask)](https://goreportcard.com/report/github.com/nekomeowww/bitmask)
+[![build](https://github.com/nekomeowww/bitmask/actions/workflows/build.yaml/badge.svg)](https://github.com/nekomeowww/bitmask/actions/workflows/build.yaml) [![unittest](https://github.com/nekomeowww/bitmask/actions/workflows/test.yml/badge.svg)](https://github.com/nekomeowww/bitmask/actions/workflows/test.yml) [![](https://goreportcard.com/badge/github.com/nekomeowww/bitmask)](https://goreportcard.com/report/github.com/nekomeowww/bitmask)
 
 A golang library to manipulating bitmasks with marshal/unmarshal struct support.
 

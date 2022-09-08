@@ -1,4 +1,4 @@
-name: 构建 Build
+name: build
 
 on:
   push:
