@@ -14,10 +14,10 @@ Features:
 
 Important notice: **The first bit should be 1, not 0.**
 
-Use `Set(int)` and `Unset(int)` to set and unset bits.   
-Use `IsSet(int) bool` to determine if a bit is set.   
-   
-Use `Marshal(interface{})` to marshal a bitmask into a struct.   
+Use `Set(int)` and `Unset(int)` to set and unset bits.
+Use `IsSet(int) bool` to determine if a bit is set.
+
+Use `Marshal(interface{})` to marshal a bitmask into a struct.
 Use `Unmarshal(interface{})` to unmarshal a bitmask from a struct.
 
 ### Manually
@@ -141,7 +141,9 @@ func main() {
     b.IsSet(2) // true
 
     err := Unmarshal(bitmask, &v)
-    require.NoError(err)
+    if err != nil {
+        log.Fatal(err)
+    }
 
     v.A // 1
     v.B // 1
@@ -168,7 +170,9 @@ func main() {
     b.IsSet(2) // true
 
     err := Unmarshal(bitmask, &v)
-    require.NoError(err)
+    if err != nil {
+        log.Fatal(err)
+    }
 
     v.A // 1
     v.B // 1
@@ -195,9 +199,29 @@ func main() {
     b.IsSet(2) // true
 
     err := Unmarshal(bitmask, &v)
-    require.NoError(err)
+    if err != nil {
+        log.Fatal(err)
+    }
 
     v.A // true
     v.B // true
 }
 ```
+
+### Error handling
+
+List of errors:
+
+```go
+var (
+    // ErrInvalidTagValue tag 值不合法 (tag value is invalid)
+    ErrInvalidTagValue = errors.New("invalid tag value")
+    // ErrNoNilPointerAllowed 不允许 nil 指针 (nil pointer is not allowed) 
+    ErrNoNilPointerAllowed = errors.New("no nil pointer allowed")
+    // ErrNotAStructPointer 不是结构体指针 (not a struct pointer)
+    ErrNotAStructPointer = errors.New("dest must be a pointer to struct")
+    // ErrNotStructPointerOrStruct 不是结构体指针或结构体 (not a struct pointer or struct)
+    ErrNotStructPointerOrStruct = errors.New("dest must be a pointer to struct or a struct")
+    // ErrBitOutOfRange bit 超出范围 (bit out of range)
+    ErrBitOutOfRange = errors.New("bit should within 1 to 64")
+)
