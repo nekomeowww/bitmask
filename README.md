@@ -1,5 +1,7 @@
 # bitmask
 
+[![](https://goreportcard.com/badge/github.com/nekomeowww/bitmask)](https://goreportcard.com/report/github.com/nekomeowww/bitmask)
+
 A golang library to manipulating bitmasks with marshal/unmarshal struct support.
 
 Features:
