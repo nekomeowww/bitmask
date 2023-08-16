@@ -22,7 +22,7 @@ jobs:
       # 设定 Go 环境
       - uses: actions/setup-go@v3
         with:
-          go-version: "^1.18.0"
+          go-version: "^1.21.0"
           cache: true
 
       # Get values for cache paths to be used in later steps
@@ -53,12 +53,12 @@ jobs:
       - name: Show diff packages
         run: |
           echo $(difftest -oldrev HEAD~1 -newrev HEAD)
-      
+
       # 代码检查潜在错误
       - name: Vet (Scan for protential mistakes)
         run: |
           go vet $(difftest -oldrev HEAD~1 -newrev HEAD)
-        
+
   unittest:
     # 运行目标
     runs-on: ubuntu-latest
@@ -73,7 +73,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
-          go-version: "^1.18.0"
+          go-version: "^1.21.0"
           cache: true
 
       # Get values for cache paths to be used in later steps
